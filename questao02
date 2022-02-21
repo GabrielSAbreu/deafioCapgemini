@@ -1,0 +1,26 @@
+from random import choice
+from string import digits, ascii_uppercase, ascii_lowercase
+#Dicionário para definir os valores que para garantir uma senha segura
+valores = {'digitos': digits,
+           'maiusculas': ascii_uppercase,
+           'minusculas': ascii_lowercase,
+           'caracteres': ('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+')}
+#entrada da senha pelo usuário
+senha = str(input('Cadastre a senha: ')).strip()
+
+if len(senha) < 6:
+    print(f'Para sua senha atender o mínimo de Segurança acrescente ao menos {6 - len(senha)} caracteres.')
+    print('Por exemplo: ')
+#Verifica se a senha possui os caracteres para ser segura, caso contrário adiciona
+for i in range(0, 6 - len(senha)):
+    if senha not in valores['digitos']:
+        senha += choice(valores['digitos'])
+    if senha not in valores['minusculas']:
+        senha += choice(valores['minusculas'])
+    if senha not in valores['maiusculas']:
+        senha += choice(valores['maiusculas'])
+    if senha not in valores['caracteres']:
+        senha += choice(valores['caracteres'])
+    if len(senha) >= 6:
+        break
+print(senha)
