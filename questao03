@@ -1,0 +1,26 @@
+anagrama = list()  # lista para guardar anagramas
+posicao = list()  # lista auxiliar para guardar posição / indice em que ocorre o anagrama
+
+palavra = str(input('Digite uma palavra: ')).strip()
+
+# Laço para verificar se existem caracteres repetidos / anagramas pares
+for i in range(0, len(palavra)):
+    if i == 0:
+        aux = palavra[0]
+        anagrama.append(aux)
+        posicao.append(i)
+    elif palavra[i] == aux:
+        anagrama.append(palavra[i])
+        posicao.append(i)
+        anagrama.append(posicao[:])
+        posicao.clear()
+# laço para verificar as possibibilidades de anagramas pares com mais de um caractere
+for i in range(0, len(palavra)):
+    if i == 0:
+        aux = palavra[i] + palavra[i + 1]
+        anagrama.append(aux)
+        posicao.append(i)
+
+print(palavra)
+
+print(anagrama)
