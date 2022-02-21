@@ -1,0 +1,7 @@
+#Algoritmo para exibir um escada com tamanho e base igual a 'n'
+#Abaixo um possibilidade de interação com o usuário
+
+#n = int(input('Digite um valor para o tamanho da escada:'))
+n = 6
+for c in range(0, n + 1):
+    print(f'{"*"* c:>{n}}')
